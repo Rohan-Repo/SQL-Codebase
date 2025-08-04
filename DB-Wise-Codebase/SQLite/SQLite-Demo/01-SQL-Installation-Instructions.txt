@@ -1,0 +1,18 @@
+SQL used for CRUD - Create / Read / Update / Delete
+
+Create: How to create a new table or record in a table. 
+Keywords: CREATE and INSERT
+
+Read: How to retrieve data from a table.
+Keywords: SELECT
+
+Update: How to modify existing records.
+Keywords: UPDATE
+
+Delete: How to remove records from a table.
+Keywords: DELETE
+
+Install using apt:
+admin@ubuntu-vm:~$ sudo apt update
+admin@ubuntu-vm:~$ sudo apt-get install sqlite3
+admin@ubuntu-vm:~$ sqlite3 --version
