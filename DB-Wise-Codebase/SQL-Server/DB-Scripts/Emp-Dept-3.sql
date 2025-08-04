@@ -1,0 +1,100 @@
+USE CompanyDB;
+
+-- SQL CRUD Operations;
+
+-- Drop the DB if it exists
+DROP TABLE IF EXISTS Employee;
+DROP TABLE IF EXISTS Department;
+
+-- Add all the Employee Data
+
+-- Create Operation - CREATE AND INSERT
+
+CREATE TABLE 
+	Department(
+		deptID INT IDENTITY(1000,100) PRIMARY KEY,
+		deptName VARCHAR(20)
+		);
+
+INSERT INTO Department( deptName ) VALUES ( 'C-Suite' );
+INSERT INTO Department( deptName ) VALUES ( 'L&D' );
+INSERT INTO Department( deptName ) VALUES ( 'Eng' );
+INSERT INTO Department( deptName ) VALUES ( 'PM' );
+
+
+SELECT * from Department;
+
+CREATE TABLE 
+	Employee(
+		empID INT IDENTITY(100,5) PRIMARY KEY,
+		empName VARCHAR(25) NOT NULL,
+		empAge INT NOT NULL,
+		empPhoneNumCountryCode INT,
+		empPhoneNum BIGINT,
+		empJob VARCHAR(25),
+		empCountry VARCHAR(25) NOT NULL,
+		deptID INT,
+		CONSTRAINT FK_DeptEmp 
+		FOREIGN KEY (deptID) REFERENCES Department(deptID)
+	);
+
+-- Founder will be the first employee
+INSERT INTO 
+	Employee
+		( empName, empAge, empPhoneNumCountryCode, empPhoneNum, empJob, empCountry, deptID )
+	VALUES
+		( 'Larry', 40, 61, 8769015432, 'Founder and CEO', 'Australia', 1000 );
+
+INSERT INTO 
+	Employee
+		( empName, empAge, empPhoneNumCountryCode, empPhoneNum, empJob, empCountry, deptID )
+	VALUES
+		( 'John', 31, 1, 9876543210, 'Trainer', 'Canada', 1100 );
+
+INSERT INTO 
+	Employee
+		( empName, empAge, empPhoneNumCountryCode, empPhoneNum, empJob, empCountry, deptID )
+	VALUES
+		( 'Jane', 25, 1, 4561237890, 'Tester', 'USA', 1200 );
+
+INSERT INTO 
+	Employee
+		( empName, empAge, empPhoneNumCountryCode, empPhoneNum, empJob, empCountry, deptID )
+	VALUES
+		( 'Mary', 28, 91, 1234567890, 'Developer', 'India', 1200 );
+
+INSERT INTO 
+	Employee
+		( empName, empAge, empPhoneNumCountryCode, empPhoneNum, empJob, empCountry, deptID )
+	VALUES
+		( 'Janice', 35, 971, 7896543210, 'Project Manager', 'UAE', 1300 );
+
+-- Read Operation - SELECT
+SELECT * FROM Department;
+
+SELECT * FROM Employee;
+
+SELECT 'Update-Operation' AS 'What if an employee was transferred to another country';
+
+-- Update Operation - UPDATE
+UPDATE 
+	Employee 
+SET
+	empCountry = 'UK',
+	empPhoneNum = 1357908642,
+	empPhoneNumCountryCode = 44
+WHERE 
+	empID = 115;
+
+SELECT * FROM Employee;
+
+SELECT 'Delete-Operation' AS 'What if an employee left the company';
+
+-- Delete Operation - DELETE
+DELETE 
+	FROM 
+	Employee
+WHERE
+	empID = 120;
+
+SELECT * FROM Employee;

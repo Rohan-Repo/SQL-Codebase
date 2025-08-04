@@ -1,0 +1,47 @@
+USE StudentDB;
+
+/*
+	Suppose the College Admin wants to see a list of Students 
+	with the Courses enrolled & the amount of fees paid
+*/
+
+-- DROP PROCEDURE sp_getStudentData
+
+-- Stored Procedure Without Parameter
+CREATE PROCEDURE sp_getStudentData
+AS
+	BEGIN
+		SELECT CONCAT( s_firstName, ' ',  s_lastName) AS studentName, 
+		c_name AS courseName, s_fees AS feesPaid 
+		FROM Student INNER JOIN Courses ON Student.c_id = Courses.c_id 
+		ORDER BY courseName
+	END
+
+EXEC sp_getStudentData;
+
+/*
+	Suppose the College Admin wants to see a list of Students 
+	the amount of fees paid more than a certain amount
+*/
+
+-- Stored Procedure With Parameter
+-- ALTER PROCEDURE sp_getStudentsWithFees
+CREATE PROCEDURE sp_getStudentsWithFees
+@feeToCheck NUMERIC(6,2)
+AS
+	BEGIN
+		SELECT 
+			CONCAT( s_firstName, ' ',  s_lastName) AS studentName,
+			s_emailId AS studentEmail,
+			s_fees AS feesPaid 
+		FROM Student
+		WHERE 
+			s_fees >= @feeToCheck
+		ORDER BY s_fees DESC
+	END
+
+-- EXEC sp_getStudentsWithFees;
+-- Procedure or function 'sp_getStudentsWithFees' expects parameter '@feeToCheck', which was not supplied.
+
+-- EXEC sp_getStudentsWithFees 1100;
+EXEC sp_getStudentsWithFees 2500;
