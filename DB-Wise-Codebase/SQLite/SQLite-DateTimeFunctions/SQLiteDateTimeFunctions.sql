@@ -29,7 +29,7 @@ SELECT strftime('%m-%d', 'now', 'start of month' ) as monthStartDate;
 -- Get Day of the Week - Sunday = 0 [0 to 6]
 SELECT strftime( '%w', 'now', '-3 days' ) AS threeDaysBefore, strftime( '%w', 'now' ) AS today;
 
--- Get Week of the Year
+-- Get Week of the Year [ 0 to 53 ]
 SELECT strftime( '%W', 'now' ) as currWeek, strftime( '%W', 'now', '+21 days' ) AS after3Weeks;
 
 -- Adds 14 days to current date
