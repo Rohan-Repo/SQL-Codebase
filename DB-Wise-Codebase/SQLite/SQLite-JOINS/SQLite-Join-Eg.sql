@@ -47,3 +47,6 @@ SELECT productName, productType, productPrice, orderQuantity, productPrice * ord
 -- Since Cross Joins give us the Cartesian Product, we don’t need to specify a condition
 
 SELECT * FROM Products CROSS JOIN Orders;
+
+-- To see Autoincremented Values
+SELECT * FROM sqlite_sequence;

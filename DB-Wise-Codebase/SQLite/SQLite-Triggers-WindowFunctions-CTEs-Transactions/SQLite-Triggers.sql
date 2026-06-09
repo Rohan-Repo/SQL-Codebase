@@ -60,7 +60,8 @@ END;
 -- -------------------------------
 
 -- 1. Insert a new employee
-INSERT INTO Employee VALUES (40, 'Emma Stone', 'Legal', 95000, 'New York', 'USA');
+INSERT INTO Employee (empName, empDept, empSalary, empCity, empCountry)
+VALUES ( 'Emma Stone', 'Legal', 95000, 'New York', 'USA' );
 
 -- 2. Update multiple columns (salary and dept)
 UPDATE Employee
@@ -72,3 +73,6 @@ DELETE FROM Employee WHERE empId = 40;
 
 -- 4. Check AuditLog
 SELECT * FROM AuditLog ORDER BY happened_at DESC;
+
+-- 5. To see Autoincremented Values
+SELECT * FROM sqlite_sequence;
