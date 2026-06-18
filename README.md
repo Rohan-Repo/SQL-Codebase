@@ -59,8 +59,7 @@ This project is licensed under the MIT License.
 
 ## Additional References
 
-- [SQL Style Guide](https://github.com/treffynnon/sqlstyle.guide) — Coding best practices  
-- [Sample SQL Scripts](https://github.com/CatFortman/sample-sql-scripts) — Example queries and code  
+- [SQL Style Guide](https://github.com/treffynnon/sqlstyle.guide) — Coding best practices    
 - Official documentation for each database:  
   - [MySQL](https://dev.mysql.com/doc/)  
   - [Microsoft SQL Server](https://learn.microsoft.com/en-us/sql/sql-server/)  
